@@ -5,6 +5,7 @@
 #include <iostream>
 #include <string>
 #include <unordered_map>
+#include <algorithm>
 
 auto main(int argc, char** argv) -> int {
     const std::unordered_map<std::string, greeter::LanguageCode> languages{
@@ -12,6 +13,7 @@ auto main(int argc, char** argv) -> int {
         {"de", greeter::LanguageCode::DE},
         {"es", greeter::LanguageCode::ES},
         {"fr", greeter::LanguageCode::FR},
+        {"heb", greeter::LanguageCode::HEB},
     };
 
     cxxopts::Options options(*argv, "A program to welcome the world!");
@@ -39,6 +41,8 @@ auto main(int argc, char** argv) -> int {
         std::cout << "Greeter, version " << GREETER_VERSION << std::endl;
         return 0;
     }
+
+    std::transform(language.begin(), language.end(), language.begin(), ::tolower);
 
     auto langIt = languages.find(language);
     if (langIt == languages.end()) {

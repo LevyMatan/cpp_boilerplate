@@ -21,6 +21,9 @@ CPMAddPackage(NAME Greeter SOURCE_DIR ${CMAKE_CURRENT_LIST_DIR}/..)
 # ---- Create standalone executable ----
 
 file(GLOB sources CONFIGURE_DEPENDS ${CMAKE_CURRENT_SOURCE_DIR}/source/*.cpp)
+message("About to create a standalone executable target")
+message("Source files: ${sources}")
+message("Source files dir:: ${CMAKE_CURRENT_SOURCE_DIR}")
 
 add_executable(${PROJECT_NAME} ${sources})
 
