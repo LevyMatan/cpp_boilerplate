@@ -1,19 +1,16 @@
 #include <greeter/greeter.h>
 #include <greeter/version.h>
 
+#include <algorithm>
 #include <cxxopts.hpp>
 #include <iostream>
 #include <string>
 #include <unordered_map>
-#include <algorithm>
 
 auto main(int argc, char** argv) -> int {
     const std::unordered_map<std::string, greeter::LanguageCode> languages{
-        {"en", greeter::LanguageCode::EN},
-        {"de", greeter::LanguageCode::DE},
-        {"es", greeter::LanguageCode::ES},
-        {"fr", greeter::LanguageCode::FR},
-        {"heb", greeter::LanguageCode::HEB},
+        {"en", greeter::LanguageCode::EN}, {"de", greeter::LanguageCode::DE},   {"es", greeter::LanguageCode::ES},
+        {"fr", greeter::LanguageCode::FR}, {"heb", greeter::LanguageCode::HEB},
     };
 
     cxxopts::Options options(*argv, "A program to welcome the world!");
